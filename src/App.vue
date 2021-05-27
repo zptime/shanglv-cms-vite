@@ -1,8 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+
+	<router-view></router-view>
+
   <svg-icon iconClass="bug"></svg-icon>
-	<button @click="addCount">count is: {{ count }}</button>
+	<el-button type="primary" @click="addCount">count is: {{ count }}</el-button>
+
+	<el-button type="primary" icon="el-icon-search">搜索</el-button>
 </template>
 
 <script lang="ts">
