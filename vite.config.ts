@@ -20,7 +20,8 @@ export default defineConfig({
 			views: resolve('src/views'),
 			utils: resolve('src/utils'),
 			routes: resolve('src/routes'),
-			styles: resolve('src/styles')
+			styles: resolve('src/styles'),
+			store: resolve('src/store'),
 		}
 	},
   // 配置服务
