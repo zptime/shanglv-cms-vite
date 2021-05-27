@@ -3,9 +3,14 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 const resolve = (dir: string) => path.join(__dirname, dir)
 
+import { svgBuilder } from './src/plugins/svgBuilder';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(),
+		// 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
+		[svgBuilder('./src/assets/icons/svg/')]
+	],
   // 配置别名
   resolve: {
 		alias: {

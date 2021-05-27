@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import SvgIcon from './components/SvgIcon/index.vue'
+
+createApp(App).component('svg-icon', SvgIcon).mount('#app')

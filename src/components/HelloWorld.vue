@@ -32,6 +32,7 @@
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <svg-icon iconClass="bug"></svg-icon>
 </template>
 
 <script lang="ts">
