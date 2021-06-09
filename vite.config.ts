@@ -1,63 +1,66 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-import styleImport from 'vite-plugin-style-import'
-import { svgBuilder } from './src/plugins/svgBuilder'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
+import styleImport from "vite-plugin-style-import";
+import { svgBuilder } from "./src/plugins/svgBuilder";
 
-const resolve = (dir: string) => path.join(__dirname, dir)
+const resolve = (dir: string) => path.join(__dirname, dir);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
-		// 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
-		[svgBuilder('./src/assets/icons/svg/')],
-		styleImport({
-			libs: [
-				{
-					libraryName: 'element-plus',
-					esModule: true,
-					ensureStyleFile: true,
-					resolveStyle: name => {
-						name = name.slice(3)
-						return `element-plus/packages/theme-chalk/src/${name}.scss`
-					},
-					resolveComponent: name => {
-						return `element-plus/lib/${name}`
-					}
-				}
-			]
-		})
-	],
+  plugins: [
+    vue(),
+    // 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
+    [svgBuilder("./src/assets/icons/svg/")],
+    styleImport({
+      libs: [
+        {
+          libraryName: "element-plus",
+          esModule: true,
+          ensureStyleFile: true,
+          resolveStyle: (name) => {
+            name = name.slice(3);
+            return `element-plus/packages/theme-chalk/src/${name}.scss`;
+          },
+          resolveComponent: (name) => {
+            return `element-plus/lib/${name}`;
+          },
+        },
+      ],
+    }),
+  ],
   // 配置别名
   resolve: {
-		alias: {
-			'@': resolve('src'),
-			comps: resolve('src/components'),
-			apis: resolve('src/apis'),
-			views: resolve('src/views'),
-			utils: resolve('src/utils'),
-			store: resolve('src/store'),
-			routes: resolve('src/routes'),
-			styles: resolve('src/styles')
-		}
-	},
+    alias: {
+      "@": resolve("src"),
+			// 解决路由组件采用模板语言报错问题，更换别名指向
+      vue: "vue/dist/vue.esm-bundler.js",
+      comps: resolve("src/components"),
+      apis: resolve("src/apis"),
+      views: resolve("src/views"),
+      utils: resolve("src/utils"),
+      store: resolve("src/store"),
+      routes: resolve("src/routes"),
+      styles: resolve("src/styles"),
+    },
+  },
   // 配置服务
   server: {
-		//服务器主机名
-		host: '',
-		//端口号
-		port: 3088,
-		//设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
-		strictPort: false,
-		//服务器启动时自动在浏览器中打开应用程序,当此值为字符串时，会被用作 URL 的路径名
-		open: false,
-		//自定义代理规则
-		proxy: {
-			'/api': {
-				target: 'http://jsonplaceholder.typicode.com',
-				changeOrigin: true,
-				rewrite: path => path.replace(/^\/api/, '')
-			}
-		}
-	}
-})
+    //服务器主机名
+    host: "",
+    //端口号
+    port: 3088,
+    //设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
+    strictPort: false,
+    //服务器启动时自动在浏览器中打开应用程序,当此值为字符串时，会被用作 URL 的路径名
+    open: false,
+    //自定义代理规则
+    proxy: {
+      "/api": {
+        target: "http://jsonplaceholder.typicode.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
+});
