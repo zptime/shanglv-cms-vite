@@ -15,8 +15,30 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     // 编译过程中需要引入的库文件的列表
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    // "types": [
+    //   "vite/client"
+    // ],
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@/*": [
+    //     "src/*"
+    //   ],
+    //   "comps/*": [
+    //     "src/components/*"
+    //   ],
+    //   "api/*": [
+    //     "src/api/*"
+    //   ],
+    //   "views/*": [
+    //     "src/views/*"
+    //   ],
+    //   "store/*": [
+    //     "src/store/*"
+    //   ]
+    // },
   },
+  // "typeRoots": ["./node_modules/@types/", "./types"],// 声明文件目录，默认时node_modules/@types
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   // ts 排除的文件
   "exclude": ["node_modules"]

@@ -8,6 +8,7 @@ const resolve = (dir: string) => path.join(__dirname, dir);
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	// base: './',
   plugins: [
     vue(),
     // 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
@@ -57,7 +58,7 @@ export default defineConfig({
     //自定义代理规则
     proxy: {
       "/api": {
-        target: "http://jsonplaceholder.typicode.com",
+        target: 'http://localhost:3088',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
