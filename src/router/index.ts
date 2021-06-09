@@ -1,18 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { App } from 'vue'
-import HelloWorld from '../components/HelloWorld.vue'
 
 const routerHistory = createWebHistory()
 // createWebHashHistory hash 路由
 // createWebHistory history 路由
 // createMemoryHistory 带缓存 history 路由
 
+const Layout = () => import('@/layout/index.vue')
+
 const router = createRouter({
 	history: routerHistory,
 	routes: [
 		{
 			path: '/',
-			component: HelloWorld
+			component: Layout,
+			children: [
+        {
+          path: '/home',
+					name:'home',
+          component: ()=>import('views/home/index.vue'),
+        }
+      ]
 		}
 	]
 })

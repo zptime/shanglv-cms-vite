@@ -6,29 +6,29 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  import Defaults from './main/index.vue'
+import { defineComponent, ref } from "vue";
+import Defaults from "./main/index.vue";
 
-  export default defineComponent({
-    name: 'Layout',
-    components: {
-      Defaults
-    },
-    setup() {
-      const layout = ref<string>('Defaults')
-      return {
-        layout
-      }
-    }
-  })
+export default defineComponent({
+  name: "Layout",
+  components: {
+    Defaults,
+  },
+  setup() {
+    const layout = ref<string>("Defaults");
+    return {
+      layout,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-  .app-wrapper {
-    position: relative;
-    height: 100%;
-    width: 100%;
-  }
+.app-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 </style>
 
 
