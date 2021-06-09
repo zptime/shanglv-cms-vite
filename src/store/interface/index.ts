@@ -7,6 +7,11 @@ export interface App {
 // 布局配置
 export interface ThemeConfigState {
   globalTitle: string;
+  layout:string;
+	menuBar:string;
+	animation:string;
+	isCollapse: boolean;
+	isShowLogo: boolean;
 }
 
 // 主接口(顶级类型声明)

@@ -1,31 +1,37 @@
 <template>
-  <el-container class="layout-container">
-    <Aside />
-  </el-container>
+	<div class="h100">
+		<router-view v-slot="{ Component }">
+			<transition :name="setTransitionName" mode="out-in">
+				<keep-alive  :include="keepAliveNameList">
+					<component :is="Component" :key="refreshRouterViewKey" class="w100" />
+				</keep-alive>
+			</transition>
+		</router-view>
+	</div>
 </template>
 
 <script lang="ts">
-  import { getCurrentInstance, watch } from 'vue'
-  import { useRoute } from 'vue-router'
-  import { useStore } from 'store/index'
-  import Aside from './component/aside.vue'
-  export default {
-    name: 'layoutDefaults',
-    components: { Aside },
-    setup() {
-      const { proxy } = getCurrentInstance() as any
-      const store = useStore()
-      const route = useRoute()
-
-      // 监听路由的变化
-      watch(
-        () => route.path,
-        () => {
-          proxy.$refs.layoutDefaultsScrollbarRef.wrap.scrollTop = 0
-        }
-      )
-      return {}
-    }
-  }
+import { computed, defineComponent, toRefs, reactive} from 'vue';
+import { useStore } from 'store/index';
+export default defineComponent({
+	name: 'layoutAppMain',
+	setup() {
+		const store = useStore();
+		const state: any = reactive({
+			refreshRouterViewKey: null,
+			keepAliveNameList: [],
+			keepAliveNameNewList: [],
+		});
+  		// 设置主界面切换动画
+		const setTransitionName = computed(() => {
+			return store.state.themeConfig.animation;
+		});
+		return {
+      setTransitionName,
+			...toRefs(state),
+		};
+	},
+});
 </script>
+
 

@@ -20,9 +20,20 @@
       const getThemeConfig = computed(() => {
         return store.state.themeConfig
       })
+      // 设置显示/隐藏 logo
+  const setShowLogo = computed(() => {
+    let {  isShowLogo } = store.state.themeConfig
+    return isShowLogo  
+  })
+
+   const onThemeConfigChange = () => {
+    store.state.themeConfig.isCollapse = !store.state.themeConfig.isCollapse
+  }
 
       return {
-        getThemeConfig
+        getThemeConfig,
+        setShowLogo,
+        onThemeConfigChange
       }
     }
   }
