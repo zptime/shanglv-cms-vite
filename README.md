@@ -1,27 +1,71 @@
-# Vue 3 + Typescript + Vite
+# 从零搭建后台管理系统
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+> 主要技术：Vite2，vue3，vuex4.x，Vue Router 4.x，TypeScript；预处理语言：sass；前端UI框架：ElementPlus
 
-## Recommended IDE Setup
+- 跟着大佬做的项目，步骤很详细，原文链接为(https://juejin.cn/post/6960971380435189773)[https://juejin.cn/post/6960971380435189773]
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+## 项目问题解决
 
-### If Using `<script setup>`
+### npm init @vitejs/app 命令报错
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+[报错截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_1.png)
 
-## Type Support For `.vue` Imports in TS
+问题原因：node_cache的路径中存在空格
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
+解决办法：重设nodejs路径
 
-### If Using Volar
+```bash
+npm config set prefix “D:\Program\nodejs\node_global”
+npm config set cache “D:\Program\nodejs\node_cache”
+```
 
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
+### [vue/no-multiple-template-root] The template root requires exactly one element
 
-### If Using Vetur
+问题原因：vue模板下不能有多个根元素。但是vue3 template下可以有多个根元素
 
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+解决办法：安装vetur，vscode配置：文件->首选项->设置->eslint（vetur配置去除，取消勾选）
+
+[解决截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_2.png)
+
+
+### 找不到模块“path”或其相应的类型声明
+
+解决办法：
+
+```bash
+npm install @types/node --save-dev
+```
+
+### icon组件看不到小爬虫图标
+
+问题原因：没有添加代码
+
+解决办法：
+```html
+<svg-icon iconClass="bug"></svg-icon>
+```
+
+### sass编译报错
+
+sass安装：
+
+```bash
+npm install -D sass sass-loader
+```
+
+报错信息：Sass currently treats / as a division operation in some contexts and a separator in others. This makes it difficult for Sass users to tell what any given / will mean, and makes it hard to work with new CSS features that use / as a separator.（Sass当前/在某些情况下被视为除法运算，而在另一些情况下则被视为分隔符。这使Sass用户很难说出任何给定的/含义，并使使用/用作分隔符的新CSS功能变得困难。）
+
+解决办法：将sass手动降级到1.32（"sass": "~1.32.12"）
+
+#### vue router 4.x报错
+
+报错信息：Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".（组件提供了模板选项，但此 Vue 版本不支持运行时编译。配置你的 bundler 将“vue”别名为“vue/dist/vue.esm-bundler.js”。）
+
+解决办法：在vite.config.ts文件中配置别名
+
+[配置截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_3.png)
+
+
+
+
+
