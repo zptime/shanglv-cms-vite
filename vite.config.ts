@@ -5,6 +5,7 @@ import styleImport from "vite-plugin-style-import";
 import { svgBuilder } from "./src/plugins/svgBuilder";
 import { configMockPlugin } from "./src/plugins/configMockPlugin";
 import { configSvgIconsPlugin } from './src/plugins/configSvgIconsPlugin'
+import { configStyleImportPlugin } from './src/plugins/configStyleImportPlugin'
 import { wrapperEnv } from './src/utils/env';
 
 const resolve = (dir: string) => path.join(__dirname, dir);
@@ -29,7 +30,8 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       [
         svgBuilder("./src/assets/icons/svg/"), // 已经将src/icons/svg/下的svg全部导入，无需再单独导入
         configMockPlugin(isBuild), // mock 模拟请求
-        configSvgIconsPlugin(isBuild)
+        configSvgIconsPlugin(isBuild),
+        configStyleImportPlugin(isBuild),
       ],
       styleImport({
         libs: [
