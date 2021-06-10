@@ -19,7 +19,7 @@ npm config set prefix “D:\Program\nodejs\node_global”
 npm config set cache “D:\Program\nodejs\node_cache”
 ```
 
-### [vue/no-multiple-template-root] The template root requires exactly one element
+### 1. [vue/no-multiple-template-root] The template root requires exactly one element
 
 问题原因：vue模板下不能有多个根元素。但是vue3 template下可以有多个根元素
 
@@ -28,7 +28,7 @@ npm config set cache “D:\Program\nodejs\node_cache”
 ![解决截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_2.png)
 
 
-### 找不到模块“path”或其相应的类型声明
+### 2. 找不到模块“path”或其相应的类型声明
 
 解决办法：
 
@@ -36,7 +36,7 @@ npm config set cache “D:\Program\nodejs\node_cache”
 npm install @types/node --save-dev
 ```
 
-### icon组件看不到小爬虫图标
+### 3. icon组件看不到小爬虫图标
 
 问题原因：没有添加代码
 
@@ -45,7 +45,7 @@ npm install @types/node --save-dev
 <svg-icon iconClass="bug"></svg-icon>
 ```
 
-### sass编译报错
+### 4. sass编译报错
 
 sass安装：
 
@@ -57,7 +57,7 @@ npm install -D sass sass-loader
 
 解决办法：将sass手动降级到1.32（"sass": "~1.32.12"）
 
-#### vue router 4.x报错
+#### 5. vue router 4.x报错
 
 报错信息：Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".（组件提供了模板选项，但此 Vue 版本不支持运行时编译。配置你的 bundler 将“vue”别名为“vue/dist/vue.esm-bundler.js”。）
 
