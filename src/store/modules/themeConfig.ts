@@ -23,6 +23,8 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
     isBreadcrumb: true,
     // 是否开启 Breadcrumb 图标
     isBreadcrumbIcon: true,
+		// 是否开启 TagsView 缓存
+		isCacheTagsView:false,
   },
   mutations: {
     // 设置布局配置
