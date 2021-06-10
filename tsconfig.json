@@ -38,13 +38,15 @@
     //   ]
     // },
   },
-  // "typeRoots": ["./node_modules/@types/", "./types"],// 声明文件目录，默认时node_modules/@types
+  "typeRoots": ["./node_modules/@types/", "./types"],// 声明文件目录，默认时node_modules/@types
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "mock/**/*.ts"
+    "mock/**/*.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
   ],
   // ts 排除的文件
   "exclude": ["node_modules"]
