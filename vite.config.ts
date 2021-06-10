@@ -1,15 +1,26 @@
-import { defineConfig, ConfigEnv, UserConfigExport } from "vite";
+import { defineConfig, ConfigEnv, UserConfigExport, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import styleImport from "vite-plugin-style-import";
 import { svgBuilder } from "./src/plugins/svgBuilder";
 import { configMockPlugin } from "./src/plugins/configMockPlugin";
+import { wrapperEnv } from './src/utils/env';
 
 const resolve = (dir: string) => path.join(__dirname, dir);
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const isBuild = command === "build";
+	const root = process.cwd()
+  const env = loadEnv(mode, root)
+  const viteEnv = wrapperEnv(env)
+  const {
+    VITE_PORT,
+    VITE_USE_MOCK,
+    VITE_BUILD_COMPRESS,
+    VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE
+  } = viteEnv
+
   return defineConfig({
     // base: './',
     plugins: [
