@@ -6,6 +6,7 @@ import { svgBuilder } from "./src/plugins/svgBuilder";
 import { configMockPlugin } from "./src/plugins/configMockPlugin";
 import { configSvgIconsPlugin } from './src/plugins/configSvgIconsPlugin'
 import { configStyleImportPlugin } from './src/plugins/configStyleImportPlugin'
+import { configHtmlPlugin } from './src/plugins/configHtmlPlugin'
 import { wrapperEnv } from './src/utils/env';
 
 const resolve = (dir: string) => path.join(__dirname, dir);
@@ -32,6 +33,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         configMockPlugin(isBuild), // mock 模拟请求
         configSvgIconsPlugin(isBuild),
         configStyleImportPlugin(isBuild),
+        configHtmlPlugin(viteEnv, isBuild),
       ],
       styleImport({
         libs: [
