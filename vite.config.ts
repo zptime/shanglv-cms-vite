@@ -7,6 +7,7 @@ import { configMockPlugin } from "./src/plugins/configMockPlugin";
 import { configSvgIconsPlugin } from './src/plugins/configSvgIconsPlugin'
 import { configStyleImportPlugin } from './src/plugins/configStyleImportPlugin'
 import { configHtmlPlugin } from './src/plugins/configHtmlPlugin'
+import { configCompressPlugin } from './src/plugins/configCompressPlugin'
 import { wrapperEnv } from './src/utils/env';
 
 const resolve = (dir: string) => path.join(__dirname, dir);
@@ -34,6 +35,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         configSvgIconsPlugin(isBuild),
         configStyleImportPlugin(isBuild),
         configHtmlPlugin(viteEnv, isBuild),
+        configCompressPlugin( VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
       ],
       styleImport({
         libs: [
