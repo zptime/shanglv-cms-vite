@@ -6,16 +6,20 @@ export interface App {
 
 // 布局配置
 export interface ThemeConfigState {
+isCollapse: boolean;
+isBreadcrumb: boolean;
+  isBreadcrumbIcon: boolean;
+   isFixedHeader: boolean;
+   isShowLogo: boolean;
   globalTitle: string;
+   tagsViewRoutes: boolean;
   layout:string;
 	menuBar:string;
 	animation:string;
-	isCollapse: boolean;
-	isShowLogo: boolean;
-  isFixedHeader: boolean;
-  isBreadcrumb: boolean;
-  isBreadcrumbIcon: boolean;
-  tagsViewRoutes: boolean;
+	
+	
+ 
+ 
 }
 
 // 路由配置

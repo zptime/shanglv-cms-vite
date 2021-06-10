@@ -11,7 +11,7 @@ declare interface ViteEnv {
   VITE_GLOB_API_URL: string
   VITE_PORT: number
   VITE_USE_MOCK: boolean
-  VITE_BUILD_COMPRESS: string
+  VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean
 }
 

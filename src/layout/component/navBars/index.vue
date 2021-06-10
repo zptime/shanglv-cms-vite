@@ -1,6 +1,7 @@
 <template>
   <div class="layout-navbars-container">
     <BreadcrumbIndex></BreadcrumbIndex>
+    <TagsView  />
   </div>
 </template>
 
@@ -8,9 +9,10 @@
   import { computed } from 'vue'
   import { useStore } from 'store/index'
   import BreadcrumbIndex from './breadcrumb/index.vue'
+  import TagsView from './tagsView/tagsView.vue';
   export default {
     name: 'layoutNavBars',
-    components: { BreadcrumbIndex },
+    components: { BreadcrumbIndex,TagsView },
     setup() {
       const store = useStore()
       // 获取布局配置信息

@@ -42,7 +42,8 @@ export default defineComponent({
   props: {
     msg: {
       type: String,
-      required: true
+      default:'Ä¬ÈÏmsgs',
+        require:true
     }
   },
   setup: () => {

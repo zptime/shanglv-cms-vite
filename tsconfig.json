@@ -14,31 +14,34 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+     "skipLibCheck": true /* 跳过声明文件的类型检查. */,
+    "forceConsistentCasingInFileNames": true, /* 不允许对同一文件的大小写不一致的引用 */
     // 编译过程中需要引入的库文件的列表
-    "lib": ["esnext", "dom"]
-    // "types": [
-    //   "vite/client"
-    // ],
-    // "baseUrl": ".",
-    // "paths": {
-    //   "@/*": [
-    //     "src/*"
-    //   ],
-    //   "comps/*": [
-    //     "src/components/*"
-    //   ],
-    //   "api/*": [
-    //     "src/api/*"
-    //   ],
-    //   "views/*": [
-    //     "src/views/*"
-    //   ],
-    //   "store/*": [
-    //     "src/store/*"
-    //   ]
-    // },
+    "lib": ["esnext", "dom"],
+    "types": [
+      "vite/client"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "comps/*": [
+        "src/components/*"
+      ],
+      "api/*": [
+        "src/api/*"
+      ],
+      "views/*": [
+        "src/views/*"
+      ],
+      "store/*": [
+        "src/store/*"
+      ]
+    },
   },
   "typeRoots": ["./node_modules/@types/", "./types"],// 声明文件目录，默认时node_modules/@types
+  //指定一个匹配列表（属于自动指定该路径下的所有ts相关文件）
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
@@ -47,6 +50,7 @@
     "mock/**/*.ts",
     "types/**/*.d.ts",
     "types/**/*.ts",
+    "src/vite-env.d.ts",
   ],
   // ts 排除的文件
   "exclude": ["node_modules"]
