@@ -4,6 +4,7 @@ import type { App } from 'vue'
 import { RootStateTypes } from './interface/index';
 import themeConfig from './modules/themeConfig';
 import app from './modules/app';
+import routesList from './modules/routesList';
 
 // InjectionKey 将store安装到Vue应用程序时提供类型，将类型传递InjectionKey给useStore方法
 
@@ -13,7 +14,8 @@ const key: InjectionKey<Store<RootStateTypes>> = Symbol()
 const store = createStore<RootStateTypes>({
   modules:{
     themeConfig,
-    app
+    app,
+    routesList
   }
 })
 

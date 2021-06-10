@@ -15,8 +15,14 @@ export interface ThemeConfigState {
   isFixedHeader: boolean;
 }
 
+// 路由配置
+export interface RoutesListState {
+	routesList: Array<object>;
+}
+
 // 主接口(顶级类型声明)
 export interface RootStateTypes {
   themeConfig: ThemeConfigState;
   app: App;
+  routesList:RoutesListState;
 }

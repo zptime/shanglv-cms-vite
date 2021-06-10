@@ -21,6 +21,16 @@ const router = createRouter({
           name: "home",
           component: ()=>import('views/home/index.vue'),
         },
+				{
+          path: '/demo',
+          name:'demo',
+          component: ()=>import('views/demo/index.vue'),
+        },
+        {
+          path: '/icon',
+          name:'icon',
+          component: ()=>import('views/icon/index.vue'),
+        }
       ],
     },
   ],

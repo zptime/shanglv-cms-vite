@@ -45,38 +45,10 @@ export default {
   setup() {
     const store = useStore();
     const state: any = reactive({
-      menuList: [
-        {
-          meta: {
-            auth: ["admin", "test"],
-            icon: "iconfont el-icon-menu",
-            isAffix: true,
-            isHide: false,
-            isIframe: false,
-            isKeepAlive: true,
-            title: "首页",
-            index: "1",
-          },
-          name: "home",
-          path: "/home",
-        },
-        {
-          meta: {
-            auth: ["admin", "test"],
-            icon: "iconfont el-icon-s-grid",
-            isAffix: true,
-            isHide: false,
-            isIframe: false,
-            isKeepAlive: true,
-            title: "首页2",
-            index: "2",
-          },
-          name: "home2",
-          path: "/home2",
-        },
-      ],
+      menuList: [],
       clientWidth: "",
     });
+
     // 获取布局配置信息
     const getThemeConfig = computed(() => {
       return store.state.themeConfig;
@@ -120,9 +92,25 @@ export default {
       state.clientWidth = clientWidth;
     };
 
+    // 设置路由菜单
+    const setFilterRoutes = () => {
+      state.menuList = filterRoutesFun(store.state.routesList.routesList);
+    };
+
+    const filterRoutesFun = (arr: Array<object>) => {
+      return arr
+        .filter((item: any) => !item.meta.isHide)
+        .map((item: any) => {
+          item = Object.assign({}, item);
+          if (item.children) item.children = filterRoutesFun(item.children);
+          return item;
+        });
+    };
+
     // 页面加载前
     onBeforeMount(() => {
       initMenuFixed(document.body.clientWidth);
+      setFilterRoutes();
     });
     // 页面卸载时
     onUnmounted(() => {});
