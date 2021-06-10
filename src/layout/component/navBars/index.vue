@@ -1,27 +1,20 @@
 <template>
   <div class="layout-navbars-container">
-    <i
-      class="layout-navbars-breadcrumb-icon"
-      :class="getThemeConfig.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-      @click="onThemeConfigChange"
-    ></i>
+    <BreadcrumbIndex></BreadcrumbIndex>
   </div>
 </template>
 
 <script lang="ts">
   import { computed } from 'vue'
   import { useStore } from 'store/index'
-
+  import BreadcrumbIndex from './breadcrumb/index.vue'
   export default {
     name: 'layoutNavBars',
-    components: {  },
+    components: { BreadcrumbIndex },
     setup() {
       const store = useStore()
       // 获取布局配置信息
-      const getThemeConfig = computed(() => {
-        return store.state.themeConfig
-      })
-
+      const getThemeConfig = computed(() => store.state.themeConfig)
       // 展开/收起左侧菜单点击
       const onThemeConfigChange = () => {
         store.state.themeConfig.isCollapse = !store.state.themeConfig.isCollapse
@@ -42,3 +35,4 @@
     height: 100%;
   }
 </style>
+

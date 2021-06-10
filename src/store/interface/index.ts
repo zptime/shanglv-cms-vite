@@ -13,6 +13,8 @@ export interface ThemeConfigState {
 	isCollapse: boolean;
 	isShowLogo: boolean;
   isFixedHeader: boolean;
+  isBreadcrumb: boolean;
+  isBreadcrumbIcon: boolean;
 }
 
 // 路由配置
