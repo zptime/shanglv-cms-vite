@@ -8,7 +8,7 @@
 
 ### npm init @vitejs/app 命令报错
 
-[报错截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_1.png)
+![报错截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_1.png)
 
 问题原因：node_cache的路径中存在空格
 
@@ -25,7 +25,7 @@ npm config set cache “D:\Program\nodejs\node_cache”
 
 解决办法：安装vetur，vscode配置：文件->首选项->设置->eslint（vetur配置去除，取消勾选）
 
-[解决截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_2.png)
+![解决截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_2.png)
 
 
 ### 找不到模块“path”或其相应的类型声明
@@ -63,7 +63,7 @@ npm install -D sass sass-loader
 
 解决办法：在vite.config.ts文件中配置别名
 
-[配置截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_3.png)
+![配置截图](https://github.com/zptime/resources/blob/master/images/shanglv-cms-vite/error_3.png)
 
 
 
