@@ -8,7 +8,8 @@ function getSession(key: string) {
 	return JSON.parse(json)
 }
 
-export const PATH_URL: string = 'http://mockjs.test.cn' || import.meta.env.VITE_API_URL
+// export const PATH_URL: string = 'http://mockjs.test.cn' || import.meta.env.VITE_API_URL
+export const PATH_URL: string ='/'
 
 // 配置新建一个 axios 实例
 const service: AxiosInstance = axios.create({
