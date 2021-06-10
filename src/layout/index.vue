@@ -6,7 +6,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, computed } from "vue";
+import { useStore } from "store/index";
 import Defaults from "./main/index.vue";
 
 export default defineComponent({
@@ -15,7 +16,9 @@ export default defineComponent({
     Defaults,
   },
   setup() {
-    const layout = ref<string>("Defaults");
+    const store = useStore();
+    // const layout = ref<string>("Defaults");
+    const layout = computed(() => store.state.themeConfig.layout);
     return {
       layout,
     };

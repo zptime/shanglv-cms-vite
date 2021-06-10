@@ -17,6 +17,8 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 		menuBar: '#545c64',
 		// 默认主页面切换动画，可选 1、 slide-right 2、 slide-left 3、 opacitys
 		animation: 'slide-right',
+		// 是否固定头部
+		isFixedHeader: false,
 	},
 	mutations: {
 		// 设置布局配置

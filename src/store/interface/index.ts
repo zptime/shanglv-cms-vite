@@ -12,6 +12,7 @@ export interface ThemeConfigState {
 	animation:string;
 	isCollapse: boolean;
 	isShowLogo: boolean;
+  isFixedHeader: boolean;
 }
 
 // 主接口(顶级类型声明)
